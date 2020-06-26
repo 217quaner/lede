@@ -204,7 +204,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-samba4=y
           EOF
 
-          # Samba:
+          # Frp:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-frpc=y
           CONFIG_PACKAGE_luci-app-frps=y
