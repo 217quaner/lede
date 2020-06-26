@@ -9,14 +9,14 @@
 
 name: Phicomm K2P Default
 
-on:
-  push:
-    branches: 
-      - master
-  schedule:
-    - cron: 0 0 * * 5
-  release:
-    types: [published]
+#on:
+#  push:
+#    branches:
+#      - master
+#  schedule:
+#    - cron: 0 0 * * 5
+#  release:
+#    types: [published]
 
 jobs:
 
@@ -54,6 +54,12 @@ jobs:
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
 
           df -h
+
+      - name: Update source code
+        run: |
+          git remote add openwrt https://github.com/coolsnowwolf/lede.git
+          git pull openwrt master
+          git remote -v
 
       - name: Update feeds
         run: |
