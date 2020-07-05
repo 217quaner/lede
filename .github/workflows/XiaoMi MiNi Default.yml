@@ -220,11 +220,11 @@ jobs:
       - name: Prepare artifact
         run: find ./bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
-      - name: Upload config.seed
+      - name: Upload config.buildinfo
         uses: actions/upload-artifact@master
         with:
           name: config.seed
-          path: ./bin/targets/*/*/config.seed
+          path: ./bin/targets/*/*/config.buildinfo
 
       - name: Upload firmware
         uses: actions/upload-artifact@master
