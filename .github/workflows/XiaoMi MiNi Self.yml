@@ -177,6 +177,7 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           EOF
 
           # adby
@@ -184,17 +185,6 @@ jobs:
           CONFIG_PACKAGE_adbyby=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
           EOF
-
-          # baidu
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-baidupcs-web=y
-          EOF
-
-          # neteasy
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-unblockmusic=y
-          EOF
-
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
           cat >> .config <<EOF
