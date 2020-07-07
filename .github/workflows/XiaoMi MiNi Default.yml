@@ -110,6 +110,11 @@ jobs:
           CONFIG_TARGET_IMAGES_GZIP=y
           EOF
 
+          # dlna:
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-minidlna=y
+          EOF
+
           # 编译UEFI固件:
           # cat >> .config <<EOF
           # CONFIG_EFI_IMAGES=y
