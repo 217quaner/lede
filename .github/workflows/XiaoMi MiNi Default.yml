@@ -235,5 +235,5 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/
+          path: ./bin/targets/ramips/mt7620/openwrt-ramips-mt7620-xiaomi_miwifi-mini-squashfs-sysupgrade.bin
 
