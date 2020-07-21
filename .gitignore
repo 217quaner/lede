@@ -29,3 +29,4 @@ git-src
 .git-credentials
 openwrt-ci.yml
 .vscode
+/*.log
