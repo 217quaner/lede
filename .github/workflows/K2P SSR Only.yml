@@ -7,11 +7,11 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: XiaoMi MiNi Default
+name: K2P SSR Only
 
 on:
   push:
-    branches: 
+    branches:
       - master
   schedule:
     - cron: 0 0 * * 5
@@ -65,11 +65,11 @@ jobs:
           rm -f ./.config*
           touch ./.config
 
-          # 编译XiaoMi MiNi固件:
+          # 编译K2P固件:
           cat >> .config <<EOF
           CONFIG_TARGET_ramips=y
-          CONFIG_TARGET_ramips_mt7620=y
-          CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-mini=y
+          CONFIG_TARGET_ramips_mt7621=y
+          CONFIG_TARGET_ramips_mt7621_DEVICE_phicomm_k2p=y
           EOF
 
           # 固件压缩:
@@ -77,21 +77,72 @@ jobs:
           CONFIG_TARGET_IMAGES_GZIP=y
           EOF
 
-          # dlna:
+          # 取消编译的插件
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-minidlna=y
+          CONFIG_PACKAGE_coreutils=y
+          CONFIG_PACKAGE_dns2socks=y
+          CONFIG_PACKAGE_ip-full=y
+          CONFIG_PACKAGE_ipset=y
+          CONFIG_PACKAGE_kmod-ipt-tproxy=y
+          CONFIG_PACKAGE_iptables-mod-tproxy=y
+          CONFIG_PACKAGE_libelf=y
+          CONFIG_PACKAGE_libev=y
+          CONFIG_PACKAGE_libipset=y
+          CONFIG_PACKAGE_libmbedtls=y
+          CONFIG_PACKAGE_libmnl=y
+          CONFIG_PACKAGE_libnet-1.2.x=y
+          CONFIG_PACKAGE_libpcap=y
+          CONFIG_PACKAGE_libsodium=y
+          CONFIG_PACKAGE_microsocks=y
+          CONFIG_PACKAGE_pdnsd-alt=y
+          CONFIG_PACKAGE_resolveip=y
+          CONFIG_PACKAGE_shadowsocks-libev-config=y
+          CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
+          CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
+          CONFIG_PACKAGE_shadowsocksr-libev-alt=y
+          CONFIG_PACKAGE_simple-obfs=y
+          CONFIG_PACKAGE_tcpping=y
+          # CONFIG_PACKAGE_adbyby is not set
+          # CONFIG_PACKAGE_etherwake is not set
+          # CONFIG_PACKAGE_kmod-fast-classifier is not set
+          # CONFIG_PACKAGE_kmod-nf-conntrack-netlink is not set
+          # CONFIG_PACKAGE_kmod-shortcut-fe is not set
+          # CONFIG_PACKAGE_kmod-tcp-bbr is not set
+          # CONFIG_PACKAGE_libcap-ng is not set
+          # CONFIG_PACKAGE_libuuid is not set
+          # CONFIG_PACKAGE_luci-app-accesscontrol is not set
+          # CONFIG_PACKAGE_luci-app-adbyby-plus is not set
+          # CONFIG_PACKAGE_luci-app-arpbind is not set
+          # CONFIG_PACKAGE_luci-app-autoreboot is not set
+          # CONFIG_PACKAGE_luci-app-ddns is not set
+          # CONFIG_PACKAGE_luci-app-filetransfer is not set
+          # CONFIG_PACKAGE_luci-app-nlbwmon is not set
+          # CONFIG_PACKAGE_luci-app-ramfree is not set
+          # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_fuse-utils is not set
+          # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
+          # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
+          # CONFIG_PACKAGE_luci-app-sfe is not set
+          # CONFIG_PACKAGE_luci-app-unblockmusic is not set
+          # CONFIG_PACKAGE_luci-app-upnp is not set
+          # CONFIG_PACKAGE_luci-app-vlmcsd is not set
+          # CONFIG_PACKAGE_luci-app-vsftpd is not set
+          # CONFIG_PACKAGE_luci-app-webadmin is not set
+          # CONFIG_PACKAGE_luci-app-wol is not set
+          # CONFIG_PACKAGE_luci-lib-fs is not set
+          # CONFIG_PACKAGE_miniupnpd is not set
+          # CONFIG_PACKAGE_nlbwmon is not set
+          # CONFIG_PACKAGE_shadowsocksr-libev-ssr-local is not set
+          # CONFIG_PACKAGE_vlmcsd is not set
+          # CONFIG_PACKAGE_vsftpd-alt is not set
+          # CONFIG_PACKAGE_wol is not set
           EOF
 
-          # 常用LuCI插件选择:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-aria2=y
-          CONFIG_PACKAGE_luci-app-samba=y
-          CONFIG_PACKAGE_luci-app-frpc=y
-          EOF
-
-          # SSR插件选择:
+          # SSR
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-ssr-plus=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
           EOF
 
           sed -i 's/^[ \t]*//g' ./.config
@@ -127,4 +178,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: Sysupgrade
-          path: ./bin/targets/ramips/mt7620/openwrt-ramips-mt7620-xiaomi_miwifi-mini-squashfs-sysupgrade.bin
+          path: ./bin/targets/ramips/mt7621/openwrt-ramips-mt7621-phicomm_k2p-squashfs-sysupgrade.bin

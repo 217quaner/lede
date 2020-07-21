@@ -171,7 +171,7 @@ jobs:
       - name: Upload config.buildinfo
         uses: actions/upload-artifact@master
         with:
-          name: config.seed
+          name: Config
           path: ./bin/targets/*/*/config.buildinfo
 
       - name: Upload firmware
@@ -179,4 +179,3 @@ jobs:
         with:
           name: Sysupgrade
           path: ./bin/targets/ramips/mt7620/openwrt-ramips-mt7620-xiaomi_miwifi-mini-squashfs-sysupgrade.bin
-
