@@ -79,29 +79,6 @@ jobs:
 
           # 取消编译的插件
           cat >> .config <<EOF
-          CONFIG_PACKAGE_coreutils=y
-          CONFIG_PACKAGE_dns2socks=y
-          CONFIG_PACKAGE_ip-full=y
-          CONFIG_PACKAGE_ipset=y
-          CONFIG_PACKAGE_kmod-ipt-tproxy=y
-          CONFIG_PACKAGE_iptables-mod-tproxy=y
-          CONFIG_PACKAGE_libelf=y
-          CONFIG_PACKAGE_libev=y
-          CONFIG_PACKAGE_libipset=y
-          CONFIG_PACKAGE_libmbedtls=y
-          CONFIG_PACKAGE_libmnl=y
-          CONFIG_PACKAGE_libnet-1.2.x=y
-          CONFIG_PACKAGE_libpcap=y
-          CONFIG_PACKAGE_libsodium=y
-          CONFIG_PACKAGE_microsocks=y
-          CONFIG_PACKAGE_pdnsd-alt=y
-          CONFIG_PACKAGE_resolveip=y
-          CONFIG_PACKAGE_shadowsocks-libev-config=y
-          CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
-          CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
-          CONFIG_PACKAGE_shadowsocksr-libev-alt=y
-          CONFIG_PACKAGE_simple-obfs=y
-          CONFIG_PACKAGE_tcpping=y
           # CONFIG_PACKAGE_adbyby is not set
           # CONFIG_PACKAGE_etherwake is not set
           # CONFIG_PACKAGE_kmod-fast-classifier is not set
@@ -135,6 +112,29 @@ jobs:
           # CONFIG_PACKAGE_vlmcsd is not set
           # CONFIG_PACKAGE_vsftpd-alt is not set
           # CONFIG_PACKAGE_wol is not set
+          CONFIG_PACKAGE_coreutils=y
+          CONFIG_PACKAGE_dns2socks=y
+          CONFIG_PACKAGE_ip-full=y
+          CONFIG_PACKAGE_ipset=y
+          CONFIG_PACKAGE_kmod-ipt-tproxy=y
+          CONFIG_PACKAGE_iptables-mod-tproxy=y
+          CONFIG_PACKAGE_libelf=y
+          CONFIG_PACKAGE_libev=y
+          CONFIG_PACKAGE_libipset=y
+          CONFIG_PACKAGE_libmbedtls=y
+          CONFIG_PACKAGE_libmnl=y
+          CONFIG_PACKAGE_libnet-1.2.x=y
+          CONFIG_PACKAGE_libpcap=y
+          CONFIG_PACKAGE_libsodium=y
+          CONFIG_PACKAGE_microsocks=y
+          CONFIG_PACKAGE_pdnsd-alt=y
+          CONFIG_PACKAGE_resolveip=y
+          CONFIG_PACKAGE_shadowsocks-libev-config=y
+          CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
+          CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
+          CONFIG_PACKAGE_shadowsocksr-libev-alt=y
+          CONFIG_PACKAGE_simple-obfs=y
+          CONFIG_PACKAGE_tcpping=y
           EOF
 
           # SSR
