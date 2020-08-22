@@ -9,12 +9,12 @@
 
 name: K2P SSR Only
 
-on:
-  schedule:
-    - cron: 0 20 * * *
-  push:
-    branches:
-      - master
+# on:
+#   schedule:
+#     - cron: 0 20 * * *
+#   push:
+#     branches:
+#       - master
 
 jobs:
 
